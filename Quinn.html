@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinn - Will You Be My Valentine? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 40px 20px;
+            max-width: 900px;
+            width: 100%;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .question {
+            font-size: 2.2em;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+
+        .image-container {
+            margin: 40px 0;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .image-box {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            border: 4px solid #fff;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .valentine-btn {
+            padding: 20px 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 100;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            color: white;
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .yes-btn:active {
+            transform: scale(0.95);
+        }
+
+        .no-btn {
+            background: linear-gradient(135deg, #95a5a6 0%, #bdc3c7 100%);
+            color: white;
+            position: relative;
+        }
+
+        .no-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .response-container {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .response-container.show {
+            display: block;
+        }
+
+        .response-image {
+            max-width: 500px;
+            width: 100%;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            border: 4px solid #fff;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .response-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .celebration-text {
+            font-size: 2.5em;
+            color: #fff;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .cute-messages {
+            font-size: 1.8em;
+            color: #fff;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .question {
+                font-size: 1.6em;
+            }
+            .valentine-btn {
+                padding: 15px 35px;
+                font-size: 1.2em;
+            }
+            .celebration-text {
+                font-size: 2em;
+            }
+            .cute-messages {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Initial Page -->
+        <div id="initialPage">
+            <h1>Quinn 💕</h1>
+            <p class="question">Would you be my valentine? 💕</p>
+            
+            <div class="image-container">
+                <div class="image-box">
+                    <img id="image1" src="image1.png" alt="Will you be my valentine?">
+                </div>
+            </div>
+
+            <div class="buttons-container">
+                <button class="valentine-btn yes-btn" onclick="handleYes()">YES! 💖</button>
+                <button class="valentine-btn no-btn" id="noBtn">No</button>
+            </div>
+        </div>
+
+        <!-- Response Page -->
+        <div id="responsePage" class="response-container">
+            <h1>YAY! 💕</h1>
+            <p class="celebration-text">You said YES! 🎉</p>
+            
+            <div id="cuteMessages" class="cute-messages"></div>
+            
+            <div class="response-image">
+                <img id="image2" src="image2.png" alt="So happy!">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let noButtonClickCount = 0;
+        const cuteMessages = [
+            "I miss you! 💖",
+            "You're the prettiest girl in Malaysia! 🌸💕",
+            "Your smile lights up every room! ✨",
+            "You have the kindest heart! 💝",
+            "You're so talented and amazing! 🌟",
+            "You make everyone around you happy! 😊",
+            "You're beautiful inside and out! 💕",
+            "You're one in a million! 💗",
+            "So lucky to have you as a friend! 🍀",
+            "You're absolutely stunning! 🌹",
+            "Your energy is contagious! ⭐",
+            "You deserve all the good things! 💖",
+            "See you in Singapore! ✈️💕"
+        ];
+
+        // Load images - same as Dharmansyah page
+        window.addEventListener('DOMContentLoaded', () => {
+            const img1 = document.getElementById('image1');
+            const img2 = document.getElementById('image2');
+            if (img1) img1.src = 'image1.png';
+            if (img2) img2.src = 'image2.png';
+        });
+
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Handle Yes button click
+        function handleYes() {
+            const initialPage = document.getElementById('initialPage');
+            const responsePage = document.getElementById('responsePage');
+            const cuteMessagesDiv = document.getElementById('cuteMessages');
+
+            // Hide initial page
+            initialPage.style.display = 'none';
+
+            // Show response page
+            responsePage.classList.add('show');
+
+            // Show messages one by one: "I miss you!" then "See you in Singapore!"
+            let messageIndex = 0;
+            const showNextMessage = () => {
+                if (messageIndex < cuteMessages.length) {
+                    cuteMessagesDiv.innerHTML = cuteMessages[messageIndex];
+                    messageIndex++;
+                    setTimeout(showNextMessage, 2500);
+                }
+            };
+            showNextMessage();
+
+            // Create massive burst of hearts and sparkles
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                    createSparkle();
+                }, i * 50);
+            }
+
+            // Continue creating hearts
+            const heartInterval = setInterval(() => {
+                createFloatingHeart();
+                createSparkle();
+            }, 300);
+
+            // Stop after 15 seconds
+            setTimeout(() => {
+                clearInterval(heartInterval);
+            }, 15000);
+        }
+
+        // Make No button run away when mouse gets close
+        function setupNoButton() {
+            const noBtn = document.getElementById('noBtn');
+            let isMoving = false;
+            
+            // Prevent clicking
+            noBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            
+            // Track mouse movement
+            document.addEventListener('mousemove', (e) => {
+                if (isMoving) return;
+                
+                const rect = noBtn.getBoundingClientRect();
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                // Calculate distance from mouse to button center
+                const buttonCenterX = rect.left + rect.width / 2;
+                const buttonCenterY = rect.top + rect.height / 2;
+                const distance = Math.sqrt(
+                    Math.pow(mouseX - buttonCenterX, 2) + 
+                    Math.pow(mouseY - buttonCenterY, 2)
+                );
+                
+                // If mouse is within 150px of button, make it run away
+                if (distance < 150) {
+                    isMoving = true;
+                    noButtonClickCount++;
+                    
+                    // Calculate viewport boundaries
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    const buttonWidth = rect.width;
+                    const buttonHeight = rect.height;
+                    
+                    // Generate random position that keeps button visible
+                    let newX, newY;
+                    let attempts = 0;
+                    do {
+                        newX = Math.random() * (viewportWidth - buttonWidth - 40) + 20;
+                        newY = Math.random() * (viewportHeight - buttonHeight - 40) + 20;
+                        attempts++;
+                    } while (attempts < 10 && (
+                        Math.abs(newX - rect.left) < 150 || 
+                        Math.abs(newY - rect.top) < 150
+                    ));
+                    
+                    // Set button to fixed positioning
+                    noBtn.style.position = 'fixed';
+                    noBtn.style.left = rect.left + 'px';
+                    noBtn.style.top = rect.top + 'px';
+                    noBtn.style.transition = 'all 0.4s ease-out';
+                    
+                    // Force reflow
+                    noBtn.offsetHeight;
+                    
+                    // Move to new position
+                    setTimeout(() => {
+                        noBtn.style.left = newX + 'px';
+                        noBtn.style.top = newY + 'px';
+                        
+                        // Make button slightly bigger each time
+                        const scale = 1 + (noButtonClickCount * 0.02);
+                        noBtn.style.transform = `scale(${Math.min(scale, 1.15)})`;
+                    }, 10);
+                    
+                    // Re-enable movement after animation
+                    setTimeout(() => {
+                        isMoving = false;
+                    }, 500);
+                    
+                    // Create a few hearts anyway (because we're optimistic!)
+                    for (let i = 0; i < 2; i++) {
+                        setTimeout(() => createFloatingHeart(), i * 100);
+                    }
+                }
+            });
+        }
+
+        // Continuous floating hearts on initial page
+        setInterval(() => {
+            if (Math.random() > 0.7 && document.getElementById('initialPage').style.display !== 'none') {
+                createFloatingHeart();
+            }
+        }, 1000);
+
+        // Continuous sparkles on initial page
+        setInterval(() => {
+            if (Math.random() > 0.8 && document.getElementById('initialPage').style.display !== 'none') {
+                createSparkle();
+            }
+        }, 500);
+
+        // Initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => createFloatingHeart(), i * 500);
+        }
+
+        // Setup No button to run away from mouse
+        setupNoButton();
+    </script>
+</body>
+</html>
