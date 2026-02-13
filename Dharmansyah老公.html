@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharmansyah - Happy Valentine's Day 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 40px 20px;
+            max-width: 800px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .message-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        .heart-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s ease;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .heart-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .love-text {
+            font-size: 2em;
+            color: #fff;
+            margin-top: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            display: inline-block;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .emoji:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .emoji:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .subtitle {
+                font-size: 1.4em;
+            }
+            .message {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dharmansyah, My Love</h1>
+        <p class="subtitle">Happy Valentine's Day!<span class="emoji">💕</span><span class="emoji">🌹</span><span class="emoji">💖</span></p>
+        
+        <div class="message-box">
+            <p class="message">
+                My Dearest Dharmansyah,<br><br>
+                On this special day, I want to tell you:<br>
+                You are the most beautiful gift in my life!<br>
+                Every day with you feels like Valentine's Day 💕<br><br>
+                Thank you for your constant companionship and love,<br>
+                May our love always be as sweet as it is today!<br><br>
+                Forever yours ❤️
+            </p>
+            <button class="heart-btn" onclick="showLove()">Click Me 💖</button>
+            <button class="heart-btn" onclick="createHearts()">More Hearts 💕</button>
+        </div>
+
+        <div id="loveText" class="love-text"></div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Create sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Show love message
+        function showLove() {
+            const messages = [
+                'I Love You! 💕',
+                'You Are My Everything! 💖',
+                'Forever Together! 🌹',
+                'I Love You Most! 💝',
+                'You Are My One and Only! 💗',
+                'Happy Valentine\'s Day! 💕',
+                'Forever Happy! 💖'
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const loveText = document.getElementById('loveText');
+            loveText.textContent = randomMessage;
+            loveText.style.animation = 'none';
+            setTimeout(() => {
+                loveText.style.animation = 'glow 2s ease-in-out infinite alternate';
+            }, 10);
+
+            // Create burst of hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => createFloatingHeart(), i * 100);
+            }
+        }
+
+        // Create many hearts
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                    createSparkle();
+                }, i * 100);
+            }
+        }
+
+        // Continuous floating hearts
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                createFloatingHeart();
+            }
+        }, 1000);
+
+        // Continuous sparkles
+        setInterval(() => {
+            if (Math.random() > 0.8) {
+                createSparkle();
+            }
+        }, 500);
+
+        // Initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => createFloatingHeart(), i * 500);
+        }
+
+        // Click anywhere to create hearts
+        document.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('heart-btn')) {
+                createFloatingHeart();
+                createSparkle();
+            }
+        });
+    </script>
+</body>
+</html>
